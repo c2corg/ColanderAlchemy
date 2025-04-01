@@ -7,14 +7,14 @@
 
 from .schema import SQLAlchemySchemaNode
 
-__all__ = ['SQLAlchemySchemaNode']
+__all__ = ["SQLAlchemySchemaNode"]
 
 
-__colanderalchemy__ = '__colanderalchemy__'
+__colanderalchemy__ = "__colanderalchemy__"
 
 
 def setup_schema(mapper, class_):
-    """ Build a Colander schema for ``class_`` and attach it to that class.
+    """Build a Colander schema for ``class_`` and attach it to that class.
 
     This method is designed to be attached to the ``mapper_configured``
     event from SQLAlchemy.

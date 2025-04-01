@@ -7,4 +7,4 @@
 
 import tests.test_schema as test_schema
 
-__all__ = ['test_schema']
+__all__ = ["test_schema"]
