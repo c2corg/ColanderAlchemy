@@ -32,4 +32,8 @@ var
 *.tmp*
 .DS_Store
 .coverage
-
+.venv
+/htmlcov
+/coverage.xml
+__pycache__
+.pytest_cache
