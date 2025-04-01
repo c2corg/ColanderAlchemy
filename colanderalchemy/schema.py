@@ -9,7 +9,7 @@ import logging
 import itertools
 
 import colander
-from colander import Mapping, drop, required, SchemaNode, Sequence
+from colander import Mapping, drop, required, MappingSchema, SchemaNode, Sequence
 from sqlalchemy import (
     Boolean,
     Date,
@@ -43,8 +43,8 @@ def _creation_order(obj):
         return obj._creation_order
 
 
-class SQLAlchemySchemaNode(colander.SchemaNode):
-    """Build a Colander Schema based on the SQLAlchemy mapped class."""
+class SQLAlchemySchemaNode(MappingSchema):
+    """Build a :class:`colander.MappingSchema` based on the SQLAlchemy mapped class."""
 
     sqla_info_key = "colanderalchemy"
     ca_class_key = "__colanderalchemy_config__"
