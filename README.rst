@@ -1,11 +1,20 @@
 ColanderAlchemy
 ===============
 
-.. image:: https://travis-ci.org/stefanofontanelli/ColanderAlchemy.png?branch=master
-    :target: https://travis-ci.org/stefanofontanelli/ColanderAlchemy
+.. image:: https://github.com/c2corg/ColanderAlchemy/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/c2corg/ColanderAlchemy/actions/workflows/ci.yml
 
 .. image:: https://readthedocs.org/projects/colanderalchemy/badge/
     :target: https://colanderalchemy.readthedocs.io
+
+.. Warning::
+
+    This is a fork of https://github.com/stefanofontanelli/ColanderAlchemy to add some patches, see:
+
+    * https://github.com/stefanofontanelli/ColanderAlchemy/pull/90
+    * https://github.com/stefanofontanelli/ColanderAlchemy/pull/91
+
+----
 
 `ColanderAlchemy` helps you to auto-generate `Colander
 <http://docs.pylonsproject.org/projects/colander/>`_ schemas
