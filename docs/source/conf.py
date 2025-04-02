@@ -29,6 +29,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.doctest",
     "sphinx.ext.coverage",
+    "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
 ]
 
@@ -96,12 +97,17 @@ pygments_style = "sphinx"
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = "default"
+html_theme = "alabaster"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-# html_theme_options = {}
+html_theme_options = {
+    "page_width": "auto",
+    "body_max_width": "auto",
+    "sidebar_width": "320px",
+    "navigation_with_keys": True,
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -259,3 +265,13 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 # texinfo_show_urls = 'footnote'
+
+# -- Options for intersphinx extension ---------------------------------------
+
+# Example configuration for intersphinx: refer to the Python standard library.
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+    "sqlalchemy": ("https://docs.sqlalchemy.org/en/13/", None),
+    "colander": ("https://docs.pylonsproject.org/projects/colander/en/latest/", None),
+    "deform": ("https://docs.pylonsproject.org/projects/deform/en/stable/", None),
+}
