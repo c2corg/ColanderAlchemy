@@ -60,13 +60,11 @@ class SQLAlchemySchemaNode(MappingSchema):
     ):
         """Initialise the given mapped schema according to options provided.
 
-        Arguments/Keywords
-
-        class\_
+        :param class\\_:
            An ``SQLAlchemy`` mapped class that you want a ``Colander`` schema
            to be generated for.
 
-           To declaratively customise ``Colander`` ``SchemaNode`` options,
+           To declaratively customise :class:`colander.SchemaNode` options,
            add a ``__colanderalchemy_config__`` attribute to your initial
            class declaration like so::
 
@@ -76,7 +74,7 @@ class SQLAlchemySchemaNode(MappingSchema):
                    ...
 
 
-        includes
+        :param includes:
            Iterable of attributes to include from the resulting schema. Using
            this option will ensure *only* the explicitly mentioned attributes
            are included and *all others* are excluded.
@@ -86,8 +84,8 @@ class SQLAlchemySchemaNode(MappingSchema):
            Explicitly passing this option as an argument takes precedence over
            the declarative configuration.
 
-           Incompatible with :attr:`excludes`. Default: None.
-        excludes
+           Incompatible with :attr:`excludes`.
+        :param excludes:
            Iterable of attributes to exclude from the resulting schema. Using
            this option will ensure *only* the explicitly mentioned attributes
            are excluded and *all others* are included.
@@ -97,8 +95,8 @@ class SQLAlchemySchemaNode(MappingSchema):
            Explicitly passing this option as an argument takes precedence over
            the declarative configuration.
 
-           Incompatible with :attr:`includes`. Default: None.
-        overrides
+           Incompatible with :attr:`includes`.
+        :param overrides:
             A dict-like structure that consists of schema attributes to
             override imperatively. Values provides as part of :attr:`overrides`
             will take precedence over all others.
@@ -107,9 +105,7 @@ class SQLAlchemySchemaNode(MappingSchema):
            dict on a class to declaratively customise the resulting schema.
            Explicitly passing this option as an argument takes precedence over
            the declarative configuration.
-
-           Default: None.
-        unknown
+        :param unknown:
            Represents the `unknown` argument passed to
            :class:`colander.Mapping`.
 
@@ -134,9 +130,7 @@ class SQLAlchemySchemaNode(MappingSchema):
            ``unknown`` controls the behavior of this type when an unknown
            key is encountered in the cstruct passed to the deserialize
            method of this instance.
-
-           Default: 'ignore'
-        \*\*kw
+        :param \\*\\*kw:
            Represents *all* other options able to be passed to a
            :class:`colander.SchemaNode`. Keywords passed will influence the
            resulting mapped schema accordingly (for instance, passing
@@ -213,14 +207,12 @@ class SQLAlchemySchemaNode(MappingSchema):
         that was passed to the Column on creation.  This means that
         ``Colander`` options can be specified declaratively in
         ``SQLAlchemy`` models using the ``info`` argument that you can
-        pass to :class:`sqlalchemy.Column`.
+        pass to :class:`sqlalchemy.schema.Column`.
 
-        Arguments/Keywords
-
-        prop
+        :param prop:
             A given :class:`sqlalchemy.orm.properties.ColumnProperty`
             instance that represents the column being mapped.
-        overrides
+        :param overrides:
             A dict-like structure that consists of schema attributes to
             override imperatively. Values provides as part of :attr:`overrides`
             will take precedence over all others.
@@ -429,7 +421,7 @@ class SQLAlchemySchemaNode(MappingSchema):
         This means that ``Colander`` options can be specified
         declaratively in ``SQLAlchemy`` models using the ``info``
         argument that you can pass to
-        :meth:`sqlalchemy.orm.relationship`.
+        :func:`sqlalchemy.orm.relationship`.
 
         For all relationships, the settings will only be applied to the outer
         Sequence or Mapping. To customise the inner schema node, create the
@@ -437,12 +429,10 @@ class SQLAlchemySchemaNode(MappingSchema):
         dict-like structure corresponding to the Colander options that should
         be customised.
 
-        Arguments/Keywords
-
-        prop
-            A given :class:`sqlalchemy.orm.properties.RelationshipProperty`
+        :param prop:
+            A given :class:`sqlalchemy.orm.RelationshipProperty`
             instance that represents the relationship being mapped.
-        overrides
+        :param overrides:
             A dict-like structure that consists of schema attributes to
             override imperatively. Values provides as part of :attr:`overrides`
             will take precedence over all others.  Example keys include
@@ -574,12 +564,10 @@ class SQLAlchemySchemaNode(MappingSchema):
         included in the returned dict.
 
         Thus, the return value of this function is suitable for consumption
-        as a ``Deform`` ``appstruct`` and can be used to pre-populate
+        as a ``Deform`` :term:`appstruct` and can be used to pre-populate
         forms in this specific use case.
 
-        Arguments/Keywords
-
-        obj
+        :param obj:
             An object instance to be converted to a ``dict`` structure.
             This object should conform to the given schema.  For
             example, ``obj`` should be an instance of this schema's
@@ -651,9 +639,7 @@ class SQLAlchemySchemaNode(MappingSchema):
         The return value of this function will be suitable for
         adding into an SQLAlchemy session to be committed to a database.
 
-        Arguments/Keywords
-
-        dict\_
+        :param dict\\_:
             An dictionary or similar data structure to be converted to a
             an SQLAlchemy object.  This data structure should conform to
             the given schema.  For example, ``dict_`` should be an
@@ -661,7 +647,7 @@ class SQLAlchemySchemaNode(MappingSchema):
             submission), result of a call to this schema's
             :meth:`dictify` method, or a matching structure with
             relevant keys and nesting, if applicable.
-        context
+        :param context:
             Optional keyword argument that, if supplied, becomes the base
             object, with attributes and objects being applied to it.
 
@@ -675,7 +661,7 @@ class SQLAlchemySchemaNode(MappingSchema):
 
             This is a perfect fit for something like a CRUD environment.
 
-            Default: ``None``.  Defaults to instantiating a new instance of the
+            Defaults to instantiating a new instance of the
             mapped class associated with this schema.
         """
         mapper = self.inspector

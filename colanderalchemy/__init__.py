@@ -16,22 +16,15 @@ __colanderalchemy__ = "__colanderalchemy__"
 def setup_schema(mapper, class_):
     """Build a Colander schema for ``class_`` and attach it to that class.
 
-    This method is designed to be attached to the ``mapper_configured``
-    event from SQLAlchemy.
+    This method is designed to be attached to the :meth:`sqlalchemy.orm.events.MapperEvents.mapper_configured`
+    event.
 
-    See http://docs.sqlalchemy.org/en/latest/orm/events.html#sqlalchemy.orm.events.MapperEvents.mapper_configured for more information about event handling.
+    :param mapper: The mapper associated with the given ``class_``.
 
-    Arguments/Keywords
-
-    mapper
-        The mapper associated with the given ``class_``.  This is typically
-        passed automatically via the SQLAlchemy event handler.
+        This is typically passed automatically via the SQLAlchemy event handler.
 
         May be specified as ``None`` if this method is being called manually.
-
-    class\_
-        The SQLAlchemy mapped class. This class may have
-        attributes, related mapped classes (via SQLAlchemy relationships)
-        and the like.
+    :param class\\_: The SQLAlchemy mapped class.
+        This class may have attributes, related mapped classes (via SQLAlchemy relationships) and the like.
     """
     setattr(class_, __colanderalchemy__, SQLAlchemySchemaNode(class_))
