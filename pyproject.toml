@@ -61,6 +61,13 @@ Repository = "http://github.com/c2corg/ColanderAlchemy"
 [tool.hatch.metadata]
 allow-direct-references = true
 
+[tool.hatch.build.targets.wheel]
+# Without this, hatchling's package auto-detection uses the project name's
+# casing ("ColanderAlchemy") instead of the actual lowercase package
+# directory ("colanderalchemy"), producing a wheel that installs a
+# ColanderAlchemy/ directory that "import colanderalchemy" cannot find.
+packages = ["colanderalchemy"]
+
 [tool.hatch.version]
 source = "vcs"
 
