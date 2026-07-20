@@ -43,7 +43,7 @@ keywords = [
 requires-python = ">=3.9"
 dependencies = [
     "colander~=2.0",
-    "SQLAlchemy~=1.3.24"
+    "SQLAlchemy>=1.4"
 ]
 
 [dependency-groups]
